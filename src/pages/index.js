@@ -1,63 +1,22 @@
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Layout, theme } from 'antd';
+import RootLayout from '../../components/layouts/root-layout';
 const { Header, Content, Footer } = Layout;
-const App = () => {
+const HomePage = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
   return (
-    <Layout className="layout">
-      <Header
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-          items={new Array(15).fill(null).map((_, index) => {
-            const key = index + 1;
-            return {
-              key,
-              label: `nav ${key}`,
-            };
-          })}
-        />
-      </Header>
-      <Content
-        style={{
-          padding: '0 50px',
-        }}
-      >
-        <Breadcrumb
-          style={{
-            margin: '16px 0',
-          }}
-        >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-        <div
-          className="site-layout-content"
-          style={{
-            background: colorBgContainer,
-            minHeight: "100vh",
-          }}
-        >
-          Content
-        </div>
-      </Content>
-      <Footer
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        Ant Design ©2023 Created by Ant UED
-      </Footer>
-    </Layout>
+    <div>
+      <h1>This is the home page</h1>
+    </div>
   );
 };
-export default App;
+export default HomePage;
+
+HomePage.getLayout = function getLayout(page) {
+  return (
+    <RootLayout>
+      {page}
+    </RootLayout>
+  )
+}

@@ -1,4 +1,11 @@
+import { useRouter } from "next/router"
+
 const ErrorPage = () => {
+
+    const router = useRouter()
+    setTimeout(() => {
+        router.push("/")
+    },5000)
 
     return (
 
